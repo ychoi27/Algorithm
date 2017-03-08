@@ -17,21 +17,23 @@ class Graph{
   }
 }
 
-void BFS(int s){
+void BFS(){
   boolean [] visited = new boolean [V];
   LinkedList<Integer> queue = new LinkedList();
+  for (int s = 0; s < V; s++){
   
-  queue.add(s);
-  visited[s] = true;
+    queue.add(s);
+    visited[s] = true;
   
-  while(queue.size() >0 ){
-    int n = queue.poll();
-    for (int k : adj[n]){                         // or Iterator <Integer> i =ad[n].listIterator();
+    while(queue.size() >0 ){
+      int n = queue.poll();
+      for (int k : adj[n]){                         // or Iterator <Integer> i =ad[n].listIterator();
                                                  // while (i.hasNext())  
-      while(!visited[k])){                         // int n = i.next();
-          visited[k] = true;
-          queue.add(k);     
+        while(!visited[k])){                         // int n = i.next();
+            visited[k] = true;
+            queue.add(k);     
+        }
       }
     }
-  }
+  }  
 }  
